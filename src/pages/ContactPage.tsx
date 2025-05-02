@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
 import { Mail, Phone, MapPin, Clock, Send, Check } from 'lucide-react';
 
 const ContactPage: React.FC = () => {
@@ -38,15 +36,14 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-primary-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal">Contact Us</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal">Contact Our Gold Specialists</h1>
               <p className="text-xl text-gray-600 mb-8 reveal delay-1">
-                Have questions or need assistance? Our team is here to help. Reach out to us through any of the channels below.
+                Have questions about gold trading, storage, or financing? Our PMMC-accredited team is here to help. Reach out through any of the channels below.
               </p>
             </div>
           </div>
@@ -58,16 +55,16 @@ const ContactPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <ContactCard 
                 icon={<Phone size={32} />}
-                title="Phone"
-                info="+1 (555) 123-4567"
-                subInfo="24/7 Customer Support"
+                title="Phone/WhatsApp"
+                info="+233 24 287 2025"
+                subInfo="Gold Trade Specialists"
                 delay="delay-1"
               />
               
               <ContactCard 
                 icon={<Mail size={32} />}
                 title="Email"
-                info="contact@securebank.com"
+                info="goldservices@adinkrahtrust.com"
                 subInfo="We'll respond within 24 hours"
                 delay="delay-2"
               />
@@ -75,8 +72,8 @@ const ContactPage: React.FC = () => {
               <ContactCard 
                 icon={<MapPin size={32} />}
                 title="Address"
-                info="123 Financial Avenue"
-                subInfo="New York, NY 10001"
+                info="18 Golden Star Boulevard"
+                subInfo="Kumasi, Ghana"
                 delay="delay-3"
               />
               
@@ -100,13 +97,14 @@ const ContactPage: React.FC = () => {
                 <div className="bg-white rounded-xl shadow-md p-8">
                   <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
                   
+
                   {formStatus === 'success' ? (
                     <div className="bg-success-50 border border-success-500 text-success-700 rounded-lg p-6 text-center">
                       <div className="bg-success-500 rounded-full p-2 w-12 h-12 mx-auto mb-4 text-white flex items-center justify-center">
                         <Check size={24} />
                       </div>
                       <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
-                      <p>Thank you for contacting us. We'll get back to you as soon as possible.</p>
+                      <p>Thank you for contacting Adinkrah Trust Bank. Our gold specialists will get back to you as soon as possible.</p>
                       <button 
                         onClick={() => setFormStatus('idle')}
                         className="mt-4 btn btn-primary"
@@ -161,7 +159,7 @@ const ContactPage: React.FC = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             className="input"
-                            placeholder="+1 (555) 123-4567"
+                            placeholder="+233 XX XXX XXXX"
                           />
                         </div>
                         <div>
@@ -177,10 +175,10 @@ const ContactPage: React.FC = () => {
                             className="input"
                           >
                             <option value="">Select a subject</option>
-                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Gold Trading">Gold Trading</option>
+                            <option value="Gold Storage">Gold Storage</option>
+                            <option value="Gold-Backed Loans">Gold-Backed Loans</option>
                             <option value="Account Support">Account Support</option>
-                            <option value="Technical Issues">Technical Issues</option>
-                            <option value="Feedback">Feedback</option>
                             <option value="Other">Other</option>
                           </select>
                         </div>
@@ -198,7 +196,7 @@ const ContactPage: React.FC = () => {
                           onChange={handleChange}
                           required
                           className="input resize-none"
-                          placeholder="How can we help you?"
+                          placeholder="How can our gold specialists help you?"
                         ></textarea>
                       </div>
                       
@@ -233,24 +231,24 @@ const ContactPage: React.FC = () => {
                   <div className="bg-gray-200 h-96 relative">
                     <div className="absolute inset-0 flex items-center justify-center bg-primary-900/10">
                       <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304603!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1656543745932!5m2!1sen!2sca" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254936.0339443108!2d-1.7086850931245835!3d6.6881209999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb96f349e85efd%3A0xb8d1e0b88af1f0f5!2sKumasi%2C%20Ghana!5e0!3m2!1sen!2sus!4v1656543745932!5m2!1sen!2sus" 
                         width="100%" 
                         height="100%" 
                         style={{ border: 0 }} 
                         allowFullScreen 
                         loading="lazy" 
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="SecureBank Headquarters Location"
+                        title="Adinkrah Trust Bank Headquarters Location"
                       ></iframe>
                     </div>
                   </div>
                   
                   {/* Branch Information */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4">Headquarters</h3>
+                    <h3 className="text-xl font-bold mb-4">Kumasi Headquarters</h3>
                     <p className="text-gray-600 mb-6">
-                      Our main office is located in the heart of New York City's financial district. 
-                      Visit us for personalized service and expert financial advice.
+                      Our main office is located in Kumasi, Ghana's gold trading hub. 
+                      Visit us for personalized service and expert gold banking advice.
                     </p>
                     
                     <div className="space-y-4">
@@ -258,7 +256,7 @@ const ContactPage: React.FC = () => {
                         <MapPin size={20} className="mr-3 text-primary-600 mt-1 flex-shrink-0" />
                         <div>
                           <p className="font-medium">Address:</p>
-                          <p className="text-gray-600">123 Financial Avenue, New York, NY 10001</p>
+                          <p className="text-gray-600">18 Golden Star Boulevard, Kumasi, Ghana</p>
                         </div>
                       </div>
                       
@@ -277,8 +275,8 @@ const ContactPage: React.FC = () => {
                       <div className="flex items-start">
                         <Phone size={20} className="mr-3 text-primary-600 mt-1 flex-shrink-0" />
                         <div>
-                          <p className="font-medium">Branch Phone:</p>
-                          <p className="text-gray-600">+1 (555) 123-4567</p>
+                          <p className="font-medium">Gold Trade Specialists:</p>
+                          <p className="text-gray-600">+233 24 287 2025</p>
                         </div>
                       </div>
                     </div>
@@ -295,39 +293,38 @@ const ContactPage: React.FC = () => {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4 reveal">Common Questions</h2>
               <p className="text-lg text-gray-600 reveal delay-1">
-                Find answers to frequently asked contact-related questions.
+                Find answers to frequently asked questions about our gold banking services.
               </p>
             </div>
             
             <div className="max-w-3xl mx-auto">
               <ContactFaqItem 
-                question="How quickly will I receive a response to my inquiry?"
-                answer="We strive to respond to all inquiries within 24 hours during business days. For urgent matters, we recommend calling our customer service line for immediate assistance."
+                question="How do I verify my gold's authenticity before trading?"
+                answer="Adinkrah Trust Bank offers PMMC-certified gold verification services. Our specialists use XRF technology and acid testing to authenticate gold before any transaction is processed."
                 delay="delay-1"
               />
               
               <ContactFaqItem 
-                question="Is there a secure way to send sensitive documents?"
-                answer="Yes, for secure document transmission, please log in to your online banking account and use the secure message center. Alternatively, you can visit any branch in person."
+                question="What security measures protect my gold in your vaults?"
+                answer="Our PMMC-approved storage facilities feature 24/7 armed guards, biometric access controls, motion sensors, and 360° surveillance. All stored gold is fully insured and independently audited quarterly."
                 delay="delay-2"
               />
               
               <ContactFaqItem 
-                question="How do I report a technical issue with online banking?"
-                answer="You can report technical issues through our contact form, by calling customer service, or by using the 'Report an Issue' feature within the online banking platform."
+                question="How quickly can I access my stored gold if needed?"
+                answer="With proper identification and advance notice of 24 hours, you can access your stored gold during business hours. For larger quantities, we recommend 48-72 hours notice."
                 delay="delay-3"
               />
               
               <ContactFaqItem 
-                question="Can I schedule an appointment with a financial advisor?"
-                answer="Yes, you can schedule an appointment with a financial advisor through our website, by calling your local branch, or by contacting our customer service line."
+                question="What documentation do I need for international gold transfers?"
+                answer="International gold transfers require government-issued ID, proof of gold ownership, completed Bank of Ghana foreign exchange forms, and PMMC export documentation. Our compliance team will guide you through the process."
                 delay="delay-4"
               />
             </div>
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 };

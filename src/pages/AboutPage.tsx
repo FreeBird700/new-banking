@@ -1,12 +1,9 @@
 import React from 'react';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
 import { Users, Shield, Award, Target, ArrowUpRight } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
   return (
     <>
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-primary-50">
@@ -14,8 +11,8 @@ const AboutPage: React.FC = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal">Our Story</h1>
               <p className="text-xl text-gray-600 mb-8 reveal delay-1">
-                Founded in 2005, SecureBank has been at the forefront of innovation in banking services, 
-                committed to providing secure, accessible, and customer-focused financial solutions.
+                Established in 2018 with full licensing from the Bank of Ghana (License No. BG/GOV/5763), 
+                Adinkrah Trust Bank has become Ghana's leading financial institution specializing in gold-backed services.
               </p>
             </div>
           </div>
@@ -27,36 +24,36 @@ const AboutPage: React.FC = () => {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4 reveal">Our Values</h2>
               <p className="text-lg text-gray-600 reveal delay-1">
-                At SecureBank, our values guide everything we do, from how we serve our customers to how we innovate for the future.
+                At Adinkrah Trust Bank, our values guide everything we do, from how we serve our clients to how we innovate for the future of gold banking.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <ValueCard 
                 icon={<Users size={32} />}
-                title="Customer Focus"
-                description="We put our customers at the center of everything we do, listening to their needs and tailoring our services to meet them."
+                title="Client Focus"
+                description="We put our gold traders and investors at the center of everything we do, providing specialized services tailored to their unique needs."
                 delay="delay-1"
               />
               
               <ValueCard 
                 icon={<Shield size={32} />}
                 title="Security"
-                description="We are committed to protecting our customers' data and assets with the highest standards of security."
+                description="We implement Ghana's most robust security measures to protect our clients' gold assets and financial information."
                 delay="delay-2"
               />
               
               <ValueCard 
                 icon={<Award size={32} />}
                 title="Excellence"
-                description="We strive for excellence in all our operations, constantly improving our services and processes."
+                description="Recognized as PMMC's Digital Gold Partner of the Year (2023), we strive for excellence in all our operations."
                 delay="delay-3"
               />
               
               <ValueCard 
                 icon={<Target size={32} />}
                 title="Innovation"
-                description="We embrace innovation and technology to create better banking experiences for our customers."
+                description="As the first Ghanaian bank to offer instant gold-to-currency conversions, we embrace innovation in gold banking."
                 delay="delay-4"
               />
             </div>
@@ -70,33 +67,33 @@ const AboutPage: React.FC = () => {
               <div>
                 <h2 className="text-3xl font-bold mb-6 reveal">Our Mission</h2>
                 <p className="text-lg text-primary-100 mb-8 reveal delay-1">
-                  To empower our customers to achieve financial success by providing innovative, secure, and personalized banking services that exceed their expectations.
+                  To empower gold traders and investors to achieve financial success by providing innovative, secure, and personalized gold banking services that exceed their expectations.
                 </p>
                 <div className="bg-primary-800/50 p-6 rounded-lg reveal delay-2">
                   <p className="italic text-primary-100">
-                    "We believe that everyone deserves access to reliable and secure financial services that help them build a better future."
+                    "We believe that everyone deserves access to reliable and secure gold trading services that help them build a better future."
                   </p>
-                  <p className="mt-4 font-medium">— Sarah Johnson, CEO</p>
+                  <p className="mt-4 font-medium">— Nana Yaa Asantewaa, Gold Trade Division</p>
                 </div>
               </div>
               
               <div>
                 <h2 className="text-3xl font-bold mb-6 reveal">Our Vision</h2>
                 <p className="text-lg text-primary-100 mb-6 reveal delay-1">
-                  To be the most trusted and innovative financial institution, setting the standard for customer service, security, and technological advancement in the banking industry.
+                  To be the most trusted and innovative gold banking institution in Africa, setting the standard for customer service, security, and technological advancement in the gold trading industry.
                 </p>
                 <ul className="space-y-4 reveal delay-2">
                   <li className="flex items-start">
                     <ArrowUpRight size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
-                    <span>Become the leading digital banking platform by 2030</span>
+                    <span>Processed over $287 million in gold transactions to date</span>
                   </li>
                   <li className="flex items-start">
                     <ArrowUpRight size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
-                    <span>Expand our services to 50+ countries worldwide</span>
+                    <span>First Ghanaian bank to offer instant gold-to-currency conversions</span>
                   </li>
                   <li className="flex items-start">
                     <ArrowUpRight size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
-                    <span>Achieve carbon neutrality in all our operations</span>
+                    <span>PMMC-accredited with Bank of Ghana licensing</span>
                   </li>
                 </ul>
               </div>
@@ -110,50 +107,29 @@ const AboutPage: React.FC = () => {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4 reveal">Leadership Team</h2>
               <p className="text-lg text-gray-600 reveal delay-1">
-                Meet the experienced professionals leading SecureBank towards a future of innovation and excellence.
+                Meet the experienced professionals leading Adinkrah Trust Bank towards a future of innovation and excellence in gold banking.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <TeamMember 
-                name="Sarah Johnson"
-                role="Chief Executive Officer"
+                name="Nana Yaa Asantewaa"
+                role="Gold Trade Division"
                 image="https://images.pexels.com/photos/5876695/pexels-photo-5876695.jpeg?auto=compress&cs=tinysrgb&w=300"
                 delay="delay-1"
               />
               
               <TeamMember 
-                name="Michael Chen"
-                role="Chief Technology Officer"
+                name="Kwame Osei"
+                role="Chief Compliance Officer"
                 image="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=300"
                 delay="delay-2"
               />
               
               <TeamMember 
-                name="Elizabeth Foster"
-                role="Chief Financial Officer"
+                name="Ama Serwah"
+                role="Vault Operations Manager"
                 image="https://images.pexels.com/photos/6533883/pexels-photo-6533883.jpeg?auto=compress&cs=tinysrgb&w=300"
-                delay="delay-3"
-              />
-              
-              <TeamMember 
-                name="Robert Williams"
-                role="Chief Operations Officer"
-                image="https://images.pexels.com/photos/5878520/pexels-photo-5878520.jpeg?auto=compress&cs=tinysrgb&w=300"
-                delay="delay-1"
-              />
-              
-              <TeamMember 
-                name="Jennifer Lee"
-                role="Head of Customer Experience"
-                image="https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=300"
-                delay="delay-2"
-              />
-              
-              <TeamMember 
-                name="David Rodriguez"
-                role="Head of Security"
-                image="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300"
                 delay="delay-3"
               />
             </div>
@@ -166,47 +142,47 @@ const AboutPage: React.FC = () => {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4 reveal">Our Journey</h2>
               <p className="text-lg text-gray-600 reveal delay-1">
-                From our founding to today, SecureBank has continuously evolved to meet the changing needs of our customers.
+                From our founding to today, Adinkrah Trust Bank has continuously evolved to meet the changing needs of gold traders and investors.
               </p>
             </div>
             
             <div className="max-w-4xl mx-auto">
               <TimelineItem 
-                year="2005"
-                title="Founded in New York"
-                description="SecureBank was established with a mission to provide secure and accessible banking services."
+                year="2018"
+                title="Founded in Kumasi"
+                description="Adinkrah Trust Bank was established with a mission to provide secure and accessible gold banking services."
                 isLeft={true}
                 delay="delay-1"
               />
               
               <TimelineItem 
-                year="2010"
-                title="Expanded to 10 States"
-                description="We grew our presence across the United States, opening branches in major cities."
+                year="2020"
+                title="PMMC Accreditation"
+                description="Received full accreditation from the Precious Minerals Marketing Company (PMMC) for gold trading and storage."
                 isLeft={false}
                 delay="delay-2"
               />
               
               <TimelineItem 
-                year="2015"
-                title="Launched Digital Banking Platform"
-                description="Our award-winning mobile and online banking platforms were introduced, revolutionizing how our customers bank."
+                year="2021"
+                title="Launched Digital Gold Platform"
+                description="Our award-winning mobile and online gold banking platforms were introduced, revolutionizing how our customers trade gold."
                 isLeft={true}
                 delay="delay-3"
               />
               
               <TimelineItem 
-                year="2020"
-                title="International Expansion"
-                description="SecureBank went global, opening offices in Europe and Asia to serve our international customers."
+                year="2022"
+                title="Gold-Backed Financing"
+                description="Introduced innovative gold-backed loans with competitive 6.5% APR rates and flexible repayment terms."
                 isLeft={false}
                 delay="delay-4"
               />
               
               <TimelineItem 
-                year="2025"
+                year="2023"
                 title="Today"
-                description="Now serving over 5 million customers worldwide with cutting-edge financial solutions."
+                description="Recognized as PMMC's Digital Gold Partner of the Year, serving gold traders and investors with cutting-edge financial solutions."
                 isLeft={true}
                 delay="delay-5"
               />
@@ -214,7 +190,6 @@ const AboutPage: React.FC = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 };
@@ -245,6 +220,7 @@ interface TeamMemberProps {
   image: string;
   delay: string;
 }
+// Continuing from where we left off...
 
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image, delay }) => {
   return (

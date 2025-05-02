@@ -1,121 +1,94 @@
 import React from 'react';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
-import { CreditCard, Briefcase, Home, LineChart, PiggyBank as Piggy, ShieldCheck, Globe, Smartphone, ArrowRight } from 'lucide-react';
+import { CreditCard, Briefcase, Home, LineChart, PiggyBank as  ShieldCheck, Globe, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicesPage: React.FC = () => {
   return (
     <>
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-primary-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal">Our Services</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal">Gold Banking Services</h1>
               <p className="text-xl text-gray-600 mb-8 reveal delay-1">
-                Discover our comprehensive range of banking services designed to meet your financial needs, 
-                whether personal or business.
+                Discover our comprehensive range of PMMC-accredited gold banking services designed to meet the needs of 
+                traders, investors, and miners.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Personal Banking */}
+        {/* Gold Trading Services */}
         <section className="section bg-white lg:p-6 p-2">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-4 reveal">Personal Banking</h2>
+              <h2 className="text-3xl font-bold mb-4 reveal">Gold Trading Solutions</h2>
               <p className="text-lg text-gray-600 reveal delay-1">
-                Tailored solutions for individuals to manage and grow their finances effectively.
+                Tailored services for gold traders to securely buy, sell, and transfer precious metals.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ServiceCard 
                 icon={<CreditCard size={32} />}
-                title="Checking & Savings"
-                description="Flexible accounts with competitive interest rates and easy access to your money whenever you need it."
-                link="/services/personal"
+                title="Gold Escrow Accounts"
+                description="Specialized escrow services for gold transactions, featuring real-time balance tracking and immediate international transfer capabilities."
+                link="/services/escrow"
                 delay="delay-1"
               />
               
               <ServiceCard 
                 icon={<LineChart size={32} />}
-                title="Investments"
-                description="Grow your wealth with our range of investment options, from mutual funds to retirement planning."
-                link="/services/investments"
-                delay="delay-2"
-              />
-              
-              <ServiceCard 
-                icon={<Home size={32} />}
-                title="Mortgages & Loans"
-                description="Competitive rates on mortgages, personal loans, and lines of credit to help you achieve your goals."
-                link="/services/loans"
-                delay="delay-3"
-              />
-              
-              <ServiceCard 
-                icon={<CreditCard size={32} />}
-                title="Credit Cards"
-                description="Rewards cards, travel cards, and cashback options to suit your spending habits and lifestyle."
-                link="/services/creditcards"
-                delay="delay-1"
-              />
-              
-              <ServiceCard 
-                icon={<Piggy size={32} />}
-                title="Retirement Planning"
-                description="Secure your future with our retirement accounts and personalized planning services."
-                link="/services/retirement"
+                title="Gold-to-Currency Conversion"
+                description="Instant conversion services between gold and multiple currencies with competitive rates and minimal fees."
+                link="/services/conversion"
                 delay="delay-2"
               />
               
               <ServiceCard 
                 icon={<ShieldCheck size={32} />}
-                title="Insurance"
-                description="Protect what matters most with our comprehensive insurance solutions for life, home, and auto."
-                link="/services/insurance"
+                title="Certified Gold Storage"
+                description="PMMC-approved storage facilities in Kumasi, with comprehensive insurance coverage at just $15 per kilogram monthly."
+                link="/services/storage"
                 delay="delay-3"
               />
             </div>
           </div>
         </section>
 
-        {/* Business Banking */}
+        {/* Gold Financing */}
         <section className="section bg-primary-50 lg:px-6 px-2">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-4 reveal">Business Banking</h2>
+              <h2 className="text-3xl font-bold mb-4 reveal">Gold-Backed Financing</h2>
               <p className="text-lg text-gray-600 reveal delay-1">
-                Comprehensive solutions to help your business thrive and grow.
+                Leverage your gold holdings with competitive financing solutions.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ServiceCard 
                 icon={<Briefcase size={32} />}
-                title="Business Accounts"
-                description="Tailored checking and savings accounts designed specifically for businesses of all sizes."
-                link="/services/business"
+                title="Gold-Backed Loans"
+                description="Loans up to 70% of asset value with transparent 6.5% APR rates and flexible repayment terms for traders and miners."
+                link="/services/loans"
                 delay="delay-1"
               />
               
               <ServiceCard 
-                icon={<LineChart size={32} />}
-                title="Merchant Services"
-                description="Accept payments seamlessly with our secure and efficient payment processing solutions."
-                link="/services/merchant"
+                icon={<Home size={32} />}
+                title="Mining Equipment Financing"
+                description="Specialized financing for gold mining equipment, secured by future production or existing gold assets."
+                link="/services/equipment"
                 delay="delay-2"
               />
               
               <ServiceCard 
                 icon={<Globe size={32} />}
-                title="International Banking"
-                description="Expand your business globally with our international banking services and foreign exchange solutions."
-                link="/services/international"
+                title="International Gold Transfers"
+                description="Secure, compliant international gold transfers with full documentation for regulatory requirements."
+                link="/services/transfers"
                 delay="delay-3"
               />
             </div>
@@ -129,45 +102,45 @@ const ServicesPage: React.FC = () => {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl font-bold mb-4 reveal">Frequently Asked Questions</h2>
               <p className="text-lg text-gray-600 reveal delay-1">
-                Find answers to common questions about our services.
+                Find answers to common questions about our gold banking services.
               </p>
             </div>
             
             <div className="max-w-3xl mx-auto">
               <FaqItem 
-                question="How do I open an account with SecureBank?"
-                answer="You can open an account online through our website, through our mobile app, or by visiting any of our branch locations. You'll need to provide identification and proof of address."
+                question="How is my gold secured in your storage facilities?"
+                answer="Our PMMC-approved storage facilities feature 24/7 biometric security, armed guards, motion sensors, and 360° surveillance. All gold deposits are fully insured and independently audited quarterly."
                 delay="delay-1"
               />
               
               <FaqItem 
-                question="What are the hours for customer support?"
-                answer="Our customer support team is available 24/7 via phone at +1 (555) 123-4567. Live chat support is available from 7 AM to 11 PM ET, seven days a week."
+                question="What documentation do I need to open a gold escrow account?"
+                answer="You'll need to provide government-issued ID, proof of address, and complete our KYC process in compliance with Bank of Ghana regulations. For business accounts, additional company documentation is required."
                 delay="delay-2"
               />
               
               <FaqItem 
-                question="How are my deposits insured?"
-                answer="Deposits at SecureBank are insured by the FDIC up to $250,000 per depositor, for each account ownership category."
+                question="How quickly can I convert my gold to currency?"
+                answer="As the first Ghanaian bank to offer instant gold-to-currency conversions, we process most transactions within minutes during business hours. International transfers typically complete within 24-48 hours."
                 delay="delay-3"
               />
               
               <FaqItem 
-                question="Can I use my SecureBank card internationally?"
-                answer="Yes, SecureBank cards can be used worldwide wherever Visa or Mastercard is accepted. For security, we recommend notifying us before you travel."
+                question="What are the fees for gold storage services?"
+                answer="Our gold storage service costs $15 per kilogram monthly, which includes comprehensive insurance coverage, climate-controlled vault storage, and regular auditing."
                 delay="delay-4"
               />
               
               <FaqItem 
-                question="How do I report a lost or stolen card?"
-                answer="You can report a lost or stolen card immediately through our mobile app, online banking, or by calling our 24/7 customer service at +1 (555) 123-4567."
+                question="How do I qualify for a gold-backed loan?"
+                answer="To qualify, you must have verified gold assets stored with us or be willing to transfer them to our secure vaults. Loans are available for up to 70% of the current market value of your gold."
                 delay="delay-5"
               />
             </div>
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 };
@@ -196,26 +169,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, lin
         Learn more
         <ArrowRight size={16} className="ml-1" />
       </Link>
-    </div>
-  );
-};
-
-interface DigitalFeatureProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-const DigitalFeature: React.FC<DigitalFeatureProps> = ({ icon, title, description }) => {
-  return (
-    <div className="flex items-start">
-      <div className="bg-primary-100 p-3 rounded-lg mr-4 text-primary-700">
-        {icon}
-      </div>
-      <div>
-        <h3 className="text-lg font-bold mb-2">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-      </div>
     </div>
   );
 };

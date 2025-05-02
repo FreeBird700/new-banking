@@ -1,66 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const CtaSection: React.FC = () => {
   return (
-    <section className="section bg-white">
+    <section className="section bg-primary-900 text-white">
       <div className="container mx-auto px-4">
-        <div className="bg-gradient-to-r from-primary-800 to-primary-700 rounded-2xl overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Left side: Image */}
-            <div className="relative h-80 md:h-auto overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/3943723/pexels-photo-3943723.jpeg?auto=compress&cs=tinysrgb&w=1000" 
-                alt="Banking app on smartphone" 
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-primary-900/30"></div>
-            </div>
-            
-            {/* Right side: Content */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 reveal">Ready to Take Control of Your Finances?</h2>
-              <p className="text-primary-100 mb-8 reveal delay-1">
-                Join thousands of satisfied customers who have transformed their banking experience with SecureBank. Open an account in minutes.
-              </p>
-              
-              {/* Benefits */}
-              <div className="mb-8 reveal delay-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <BenefitItem text="No hidden fees" />
-                  <BenefitItem text="24/7 customer support" />
-                  <BenefitItem text="Mobile banking app" />
-                  <BenefitItem text="Secure transactions" />
-                </div>
-              </div>
-              
-              {/* CTA Button */}
-              <div className="reveal delay-3">
-                <Link 
-                  to="/login" 
-                  className="btn bg-accent-500 hover:bg-accent-600 text-white font-medium inline-flex items-center"
-                >
-                  Open an Account
-                  <ArrowRight size={18} className="ml-2" />
-                </Link>
-              </div>
-            </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal">Ready to Start Gold Banking with Adinkrah Trust?</h2>
+          <p className="text-xl text-primary-100 mb-8 reveal delay-1">
+            Join Ghana's leading gold banking institution and experience secure, PMMC-accredited gold trading, storage, and financing solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center reveal delay-2">
+            <Link
+              to="/contact"
+              className="btn btn-accent flex items-center justify-center sm:justify-start"
+            >
+              Contact Our Gold Specialists
+              <ArrowRight size={20} className="ml-2" />
+            </Link>
+            <Link
+              to="/services"
+              className="btn btn-outline btn-white flex items-center justify-center sm:justify-start"
+            >
+              Explore Gold Services
+            </Link>
+          </div>
+          
+          <div className="mt-12 p-6 bg-primary-800/50 rounded-lg reveal delay-3">
+            <p className="text-lg font-medium mb-2">PMMC Accredited Gold Handler</p>
+            <p className="text-primary-100">
+              Adinkrah Trust Bank is fully licensed by the Bank of Ghana (License No. BG/GOV/5763) and accredited by the Precious Minerals Marketing Company (PMMC) for gold trading and storage.
+            </p>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
-const BenefitItem: React.FC<{ text: string }> = ({ text }) => (
-  <div className="flex items-center">
-    <div className="bg-accent-500 rounded-full p-1 mr-3">
-      <Check size={16} className="text-white" />
-    </div>
-    <span className="text-white">{text}</span>
-  </div>
-);
 
 export default CtaSection;

@@ -66,7 +66,7 @@ const NavLinks: React.FC<{
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -112,8 +112,8 @@ const Header: React.FC = () => {
               to="/" 
               className="text-2xl font-bold font-display flex items-center text-primary-800"
             >
-              <span className="mr-2 text-accent-500">Secure</span>
-              Bank
+              <span className="mr-2 text-accent-500">Adinkra</span>
+              Trust Bank
             </Link>
 
             {/* Desktop Navigation */}
@@ -189,8 +189,8 @@ const Header: React.FC = () => {
                 className="text-2xl font-bold font-display flex items-center text-primary-800"
                 onClick={closeMenu}
               >
-                <span className="mr-2 text-accent-500">Secure</span>
-                Bank
+                <span className="mr-2 text-accent-500">Adinkra</span>
+                Trust Bank
               </Link>
             </div>
             
@@ -241,7 +241,7 @@ const Header: React.FC = () => {
             
             <div className="mt-auto">
               <div className="text-center text-gray-500 text-sm">
-                <p>© {new Date().getFullYear()} SecureBank</p>
+                <p>© {new Date().getFullYear()} Adinkrah Trust Bank </p>
                 <p>All rights reserved</p>
               </div>
             </div>

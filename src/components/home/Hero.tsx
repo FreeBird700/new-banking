@@ -23,10 +23,10 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white mb-4 reveal">
-            Banking Made <span className="text-accent-400">Simple</span> and <span className="text-accent-400">Secure</span>
+            Ghana's <span className="text-accent-400">Gold</span> Banking <span className="text-accent-400">Specialists</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 reveal delay-1">
-            Experience the future of banking with cutting-edge technology and personalized solutions for your financial journey.
+            Adinkrah Trust Bank offers secure, PMMC-accredited gold trading, storage, and financing solutions for traders and investors.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 reveal delay-2">
             {isAuthenticated ? (
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
                 to="/login"
                 className="btn btn-accent flex items-center justify-center sm:justify-start"
               >
-                Login to Account
+                Access Gold Account
                 <ArrowRight size={20} className="ml-2" />
               </Link>
             )}
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
               to="/services"
               className="btn btn-secondary flex items-center justify-center sm:justify-start"
             >
-              Explore Services
+              Explore Gold Services
             </Link>
           </div>
 
@@ -58,15 +58,15 @@ const Hero: React.FC = () => {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-3">
             <FeatureItem
               icon={<ShieldCheck size={24} className="text-accent-400" />}
-              title="Secure Transactions"
+              title="PMMC Accredited"
             />
             <FeatureItem
               icon={<Smartphone size={24} className="text-accent-400" />}
-              title="Mobile Banking"
+              title="Digital Gold Banking"
             />
             <FeatureItem
               icon={<Globe size={24} className="text-accent-400" />}
-              title="Global Access"
+              title="International Transfers"
             />
           </div>
         </div>

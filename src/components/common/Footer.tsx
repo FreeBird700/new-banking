@@ -3,104 +3,88 @@ import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-primary-900 text-white">
+    <footer className="bg-primary-900 text-white pt-16 pb-8 px-4 lg:px-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-16">
-          {/* Column 1: About */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Company Info */}
           <div>
-            <h3 className="text-xl font-display font-bold mb-6 text-white">
-              <span className="text-accent-400">Secure</span>Bank
-            </h3>
+            <Link to="/" className="text-2xl font-bold font-display flex items-center mb-4">
+              <span className="mr-2 text-accent-400">Adinkrah</span>
+              Trust Bank
+            </Link>
             <p className="text-gray-300 mb-6">
-              Providing secure and innovative banking solutions since 2005. Your trusted partner for all financial needs.
+              Ghana's leading gold banking institution, providing PMMC-accredited gold trading, storage, and financing solutions since 2018.
             </p>
             <div className="flex space-x-4">
-              <SocialIcon icon={<Facebook size={18} />} href="#" />
-              <SocialIcon icon={<Twitter size={18} />} href="#" />
-              <SocialIcon icon={<Instagram size={18} />} href="#" />
-              <SocialIcon icon={<Linkedin size={18} />} href="#" />
+              <SocialIcon icon={<Facebook size={18} />} href="https://facebook.com" />
+              <SocialIcon icon={<Twitter size={18} />} href="https://twitter.com" />
+              <SocialIcon icon={<Instagram size={18} />} href="https://instagram.com" />
+              <SocialIcon icon={<Linkedin size={18} />} href="https://linkedin.com" />
             </div>
           </div>
-
-          {/* Column 2: Quick Links */}
+          
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Quick Links</h3>
-            <ul className="space-y-3">
-              <FooterLink href="/" text="Home" />
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
               <FooterLink href="/about" text="About Us" />
-              <FooterLink href="/services" text="Services" />
+              {/* <FooterLink href="/services" text="Gold Services" />
+              <FooterLink href="/services/escrow" text="Gold Escrow" />
+              <FooterLink href="/services/storage" text="Gold Storage" />
+              <FooterLink href="/services/loans" text="Gold-Backed Loans" /> */}
               <FooterLink href="/contact" text="Contact" />
-              <FooterLink href="/login" text="Login" />
             </ul>
           </div>
-
-          {/* Column 3: Banking Services */}
+          
+          {/* Legal */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Banking Services</h3>
-            <ul className="space-y-3">
-              <FooterLink href="/services" text="Personal Banking" />
-              <FooterLink href="/services" text="Business Banking" />
-              <FooterLink href="/services" text="Loans & Mortgages" />
-              <FooterLink href="/services" text="Investments" />
-              <FooterLink href="/services" text="Online Banking" />
+            <h3 className="text-lg font-bold mb-4">Legal & Compliance</h3>
+            <ul className="space-y-2">
+              <FooterLink href="#" text="Terms of Service" />
+              <FooterLink href="#" text="Privacy Policy" />
+              <FooterLink href="#" text="PMMC Compliance" />
+              <FooterLink href="#" text="Bank of Ghana License" />
+              <FooterLink href="#" text="Security Measures" />
+              <FooterLink href="#" text="FAQ" />
             </ul>
           </div>
-
-          {/* Column 4: Contact Info */}
+          
+          {/* Contact */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Contact Us</h3>
+            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
-                <span className="text-gray-300">
-                  123 Financial Avenue<br />
-                  New York, NY 10001
-                </span>
+                <span>18 Golden Star Boulevard<br />Kumasi, Ghana</span>
               </li>
-              <li className="flex items-center">
-                <Phone size={20} className="mr-3 text-accent-400 flex-shrink-0" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+              <li className="flex items-start">
+                <Phone size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
+                <span>+233 24 287 2025</span>
               </li>
-              <li className="flex items-center">
-                <Mail size={20} className="mr-3 text-accent-400 flex-shrink-0" />
-                <span className="text-gray-300">contact@securebank.com</span>
+              <li className="flex items-start">
+                <Mail size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
+                <span>goldservices@adinkrahtrust.com</span>
               </li>
             </ul>
           </div>
         </div>
-
-        {/* Divider */}
-        <hr className="border-gray-700" />
-
-        {/* Bottom Section */}
-        <div className="py-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} SecureBank. All rights reserved.
+        
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-primary-800 text-center md:flex md:justify-between md:items-center">
+          <p className="text-gray-400 mb-4 md:mb-0">
+            © {new Date().getFullYear()} Adinkrah Trust Bank. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center space-x-4 text-sm text-gray-400">
-            <Link to="#" className="hover:text-white transition-colors mb-2 md:mb-0">Privacy Policy</Link>
-            <Link to="#" className="hover:text-white transition-colors mb-2 md:mb-0">Terms of Service</Link>
-            <Link to="#" className="hover:text-white transition-colors mb-2 md:mb-0">Cookie Policy</Link>
+          <div>
+            <p className="text-gray-400 text-sm">
+              Licensed by Bank of Ghana (BG/GOV/5763) | PMMC Accredited Gold Handler
+            </p>
           </div>
         </div>
       </div>
     </footer>
   );
 };
-
-// Helper components
-const SocialIcon: React.FC<{ icon: React.ReactNode; href: string }> = ({ icon, href }) => (
-  <a 
-    href={href} 
-    className="bg-primary-800 hover:bg-primary-700 p-2 rounded-full transition-colors"
-    aria-label="Social media link"
-  >
-    {icon}
-  </a>
-);
 
 const FooterLink: React.FC<{ href: string; text: string }> = ({ href, text }) => (
   <li>
@@ -111,6 +95,16 @@ const FooterLink: React.FC<{ href: string; text: string }> = ({ href, text }) =>
       {text}
     </Link>
   </li>
+);
+
+const SocialIcon: React.FC<{ icon: React.ReactNode; href: string }> = ({ icon, href }) => (
+  <a 
+    href={href} 
+    className="bg-primary-800 hover:bg-primary-700 p-2 rounded-full transition-colors"
+    aria-label="Social media link"
+  >
+    {icon}
+  </a>
 );
 
 export default Footer;

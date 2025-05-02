@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
 import Hero from '../components/home/Hero';
 import FeaturesSection from '../components/home/FeaturesSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
@@ -14,8 +13,8 @@ const HomePage: React.FC = () => {
         <Hero />
         <FeaturesSection />
         <CtaSection />
+        <TestimonialsSection/>
       </main>
-      <Footer />
     </>
   );
 };

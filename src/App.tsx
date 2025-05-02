@@ -47,7 +47,10 @@ function App() {
           />
           <Route path="*" element={<RouteWrapper Component={NotFoundPage} />} />
         </Routes>
+        <Footer />
+        
       </Router>
+
     </AuthProvider>
   );
 }
