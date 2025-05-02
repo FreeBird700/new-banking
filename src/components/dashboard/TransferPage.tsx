@@ -5,7 +5,9 @@ import {
     AlertCircle,
     ChevronRight,
     Search,
-    User
+    User,
+    XCircle,
+    PhoneCall
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -68,6 +70,7 @@ const TransferPage: React.FC = () => {
     const [transferFee, setTransferFee] = useState('2.50');
     const [transactionId, setTransactionId] = useState('');
     const [validationErrors, setValidationErrors] = useState<{ [key: string]: string }>({});
+    const [transferStatus, setTransferStatus] = useState<'pending' | 'error' | 'success'>('pending');
 
     // Filter recipients based on search query
     const filteredRecipients = recentRecipients.filter(recipient =>
@@ -131,8 +134,8 @@ const TransferPage: React.FC = () => {
             errors.amount = 'Transfer amount is required';
         } else if (isNaN(Number(transferAmount)) || Number(transferAmount) <= 0) {
             errors.amount = 'Enter a valid amount greater than 0';
-        } else if (Number(transferAmount) > 10000) {
-            errors.amount = 'Maximum transfer amount is $10,000';
+        } else if (Number(transferAmount) > 33000000) {
+            errors.amount = 'Maximum transfer amount is $3,3000,000';
         }
 
         setValidationErrors(errors);
@@ -157,6 +160,8 @@ const TransferPage: React.FC = () => {
             // Simulate transaction processing
             setTimeout(() => {
                 setTransactionId(`TRX${Math.floor(Math.random() * 1000000)}`);
+                // Set transfer status to error instead of success
+                setTransferStatus('error');
             }, 500);
         }
 
@@ -184,6 +189,7 @@ const TransferPage: React.FC = () => {
         setTransferNote('');
         setIsAddingNew(false);
         setValidationErrors({});
+        setTransferStatus('pending');
     };
 
     // Render step indicator
@@ -352,327 +358,343 @@ const TransferPage: React.FC = () => {
                                     name="bankName"
                                     className={`block w-full px-3 py-2 border ${validationErrors.bankName ? 'border-red-500' : 'border-gray-300'
                                         } rounded-lg focus:ring-primary-500 focus:border-primary-500`}
-                                    value={newRecipient.bankName}
-                                    onChange={handleNewRecipientChange}
-                                >
-                                    <option value="">Select a bank</option>
-                                    <option value="Adinkrah Trust Bank">Adinkrah Trust Bank</option>
-                                    <option value="Ghana Commercial Bank">Ghana Commercial Bank</option>
-                                    <option value="Ecobank Ghana">Ecobank Ghana</option>
-                                    <option value="Fidelity Bank Ghana">Fidelity Bank Ghana</option>
-                                    <option value="Mountain Africa Credit Union">Mountain Africa Credit Union</option>
-                                </select>
-                                {validationErrors.bankName && (
-                                    <p className="mt-1 text-sm text-red-500">{validationErrors.bankName}</p>
-                                )}
-                            </div>
-
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                                    Email Address (Optional)
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    className={`block w-full px-3 py-2 border ${validationErrors.email ? 'border-red-500' : 'border-gray-300'
-                                        } rounded-lg focus:ring-primary-500 focus:border-primary-500`}
-                                    value={newRecipient.email}
-                                    onChange={handleNewRecipientChange}
-                                    placeholder="For transaction notifications"
-                                />
-                                {validationErrors.email && (
-                                    <p className="mt-1 text-sm text-red-500">{validationErrors.email}</p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-                {/* Navigation buttons */}
-                <div className="flex justify-between mt-8">
-                    <button
-                        type="button"
-                        className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
-                        onClick={() => window.history.back()}
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        type="button"
-                        className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center"
-                        onClick={handleContinue}
-                    >
-                        Continue
-                        <ChevronRight size={18} className="ml-1" />
-                    </button>
-                </div>
-            </div>
-        );
-    };
-
-    // Render amount input step
-    const renderAmountStep = () => {
-        return (
-            <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="text-xl font-bold mb-6">Enter Transfer Amount</h2>
-
-                {/* Recipient summary */}
-                <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                    <h3 className="text-sm font-medium text-gray-500 mb-2">Recipient</h3>
-                    <div className="flex items-center">
-                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mr-3">
-                            <User size={20} />
-                        </div>
-                        <div>
-                            <h4 className="font-medium">
-                                {isAddingNew ? newRecipient.name : selectedRecipient?.name}
-                            </h4>
-                            <div className="flex items-center text-sm text-gray-500">
-                                <span>
-                                    {isAddingNew ?
-                                        newRecipient.accountNumber.replace(/(\d{4})$/, '****$1') :
-                                        selectedRecipient?.accountNumber}
-                                </span>
-                                <span className="mx-2">•</span>
-                                <span>
-                                    {isAddingNew ? newRecipient.bankName : selectedRecipient?.bankName}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Amount input */}
-                <div className="mb-6">
-                    <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">
-                        Amount*
-                    </label>
-                    <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <DollarSign size={18} className="text-gray-400" />
-                        </div>
-                        <input
-                            type="text"
-                            id="amount"
-                            name="amount"
-                            className={`block w-full pl-10 pr-3 py-3 text-xl border ${validationErrors.amount ? 'border-red-500' : 'border-gray-300'
-                                } rounded-lg focus:ring-primary-500 focus:border-primary-500`}
-                            placeholder="0.00"
-                            value={transferAmount}
-                            onChange={(e) => {
-                                // Only allow numbers and decimal point
-                                const value = e.target.value.replace(/[^0-9.]/g, '');
-                                // Ensure only one decimal point
-                                const parts = value.split('.');
-                                if (parts.length > 2) {
-                                    return;
-                                }
-                                setTransferAmount(value);
-
-                                // Clear validation error when field is being edited
-                                if (validationErrors.amount) {
-                                    setValidationErrors(prev => {
-                                        const newErrors = { ...prev };
-                                        delete newErrors.amount;
-                                        return newErrors;
-                                    });
-                                }
-                            }}
-                        />
-                    </div>
-                    {validationErrors.amount && (
-                        <p className="mt-1 text-sm text-red-500">{validationErrors.amount}</p>
-                    )}
-                </div>
-
-                {/* Transfer note */}
-                <div className="mb-6">
-                    <label htmlFor="note" className="block text-sm font-medium text-gray-700 mb-1">
-                        Note (Optional)
-                    </label>
-                    <textarea
-                        id="note"
-                        name="note"
-                        rows={3}
-                        className="block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
-                        placeholder="Add a note for this transfer"
-                        value={transferNote}
-                        onChange={(e) => setTransferNote(e.target.value)}
-                    ></textarea>
-                </div>
-
-                {/* Fee information */}
-                <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                    <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm text-gray-500">Transfer Fee:</span>
-                        <span className="font-medium">${transferFee}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-500">Total Amount:</span>
-                        <span className="font-medium">
-                            ${transferAmount ? (Number(transferAmount) + Number(transferFee)).toFixed(2) : transferFee}
-                        </span>
-                    </div>
-                </div>
-
-                {/* Navigation buttons */}
-                <div className="flex justify-between mt-8">
-                    <button
-                        type="button"
-                        className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
-                        onClick={handleBack}
-                    >
-                        Back
-                    </button>
-                    <button
-                        type="button"
-                        className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center"
-                        onClick={handleContinue}
-                    >
-                        Continue
-                        <ChevronRight size={18} className="ml-1" />
-                    </button>
-                </div>
-            </div>
-        );
-    };
-
-    // Render review step
-    const renderReviewStep = () => {
-        return (
-            <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="text-xl font-bold mb-6">Review Transfer</h2>
-
-                <div className="space-y-6">
-                    {/* Recipient information */}
-                    <div>
-                        <h3 className="text-sm font-medium text-gray-500 mb-2">Recipient</h3>
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                            <div className="flex items-center">
-                                <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mr-3">
-                                    <User size={20} />
+                                        value={newRecipient.bankName}
+                                        onChange={handleNewRecipientChange}
+                                    >
+                                        <option value="">Select a bank</option>
+                                        <option value="Adinkrah Trust Bank">Adinkrah Trust Bank</option>
+                                        <option value="Ghana Commercial Bank">Ghana Commercial Bank</option>
+                                        <option value="Ecobank Ghana">Ecobank Ghana</option>
+                                        <option value="Fidelity Bank Ghana">Fidelity Bank Ghana</option>
+                                        <option value="Mountain Africa Credit Union">Mountain Africa Credit Union</option>
+                                    </select>
+                                    {validationErrors.bankName && (
+                                        <p className="mt-1 text-sm text-red-500">{validationErrors.bankName}</p>
+                                    )}
                                 </div>
+    
                                 <div>
-                                    <h4 className="font-medium">
-                                        {isAddingNew ? newRecipient.name : selectedRecipient?.name}
-                                    </h4>
-                                    <div className="flex items-center text-sm text-gray-500">
-                                        <span>
-                                            {isAddingNew ?
-                                                newRecipient.accountNumber.replace(/(\d{4})$/, '****$1') :
-                                                selectedRecipient?.accountNumber}
-                                        </span>
-                                        <span className="mx-2">•</span>
-                                        <span>
-                                            {isAddingNew ? newRecipient.bankName : selectedRecipient?.bankName}
-                                        </span>
-                                    </div>
+                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                        Email Address (Optional)
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        className={`block w-full px-3 py-2 border ${validationErrors.email ? 'border-red-500' : 'border-gray-300'
+                                            } rounded-lg focus:ring-primary-500 focus:border-primary-500`}
+                                        value={newRecipient.email}
+                                        onChange={handleNewRecipientChange}
+                                        placeholder="For transaction notifications"
+                                    />
+                                    {validationErrors.email && (
+                                        <p className="mt-1 text-sm text-red-500">{validationErrors.email}</p>
+                                    )}
                                 </div>
                             </div>
                         </div>
+                    )}
+    
+                    {/* Navigation buttons */}
+                    <div className="flex justify-between mt-8">
+                        <button
+                            type="button"
+                            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+                            onClick={() => window.history.back()}
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center"
+                            onClick={handleContinue}
+                        >
+                            Continue
+                            <ChevronRight size={18} className="ml-1" />
+                        </button>
                     </div>
-
-                    {/* Transfer details */}
-                    <div>
-                        <h3 className="text-sm font-medium text-gray-500 mb-2">Transfer Details</h3>
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                            <div className="space-y-3">
-                                <div className="flex justify-between items-center">
-                                    <span className="text-gray-500">Amount:</span>
-                                    <span className="font-medium">${Number(transferAmount).toFixed(2)}</span>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-gray-500">Transfer Fee:</span>
-                                    <span className="font-medium">${transferFee}</span>
-                                </div>
-                                <div className="flex justify-between items-center pt-2 border-t border-gray-200">
-                                    <span className="text-gray-700 font-medium">Total:</span>
-                                    <span className="font-bold text-lg">
-                                        ${(Number(transferAmount) + Number(transferFee)).toFixed(2)}
+                </div>
+            );
+        };
+    
+        // Render amount input step
+        const renderAmountStep = () => {
+            return (
+                <div className="bg-white rounded-lg shadow-sm p-6">
+                    <h2 className="text-xl font-bold mb-6">Enter Transfer Amount</h2>
+    
+                    {/* Recipient summary */}
+                    <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h3 className="text-sm font-medium text-gray-500 mb-2">Recipient</h3>
+                        <div className="flex items-center">
+                            <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mr-3">
+                                <User size={20} />
+                            </div>
+                            <div>
+                                <h4 className="font-medium">
+                                    {isAddingNew ? newRecipient.name : selectedRecipient?.name}
+                                </h4>
+                                <div className="flex items-center text-sm text-gray-500">
+                                    <span>
+                                        {isAddingNew ?
+                                            newRecipient.accountNumber.replace(/(\d{4})$/, '****$1') :
+                                            selectedRecipient?.accountNumber}
+                                    </span>
+                                    <span className="mx-2">•</span>
+                                    <span>
+                                        {isAddingNew ? newRecipient.bankName : selectedRecipient?.bankName}
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Note */}
-                    {transferNote && (
+    
+                    {/* Amount input */}
+                    <div className="mb-6">
+                        <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">
+                            Amount*
+                        </label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <DollarSign size={18} className="text-gray-400" />
+                            </div>
+                            <input
+                                type="text"
+                                id="amount"
+                                name="amount"
+                                className={`block w-full pl-10 pr-3 py-3 text-xl border ${validationErrors.amount ? 'border-red-500' : 'border-gray-300'
+                                    } rounded-lg focus:ring-primary-500 focus:border-primary-500`}
+                                placeholder="0.00"
+                                value={transferAmount}
+                                onChange={(e) => {
+                                    // Only allow numbers and decimal point
+                                    const value = e.target.value.replace(/[^0-9.]/g, '');
+                                    // Ensure only one decimal point
+                                    const parts = value.split('.');
+                                    if (parts.length > 2) {
+                                        return;
+                                    }
+                                    setTransferAmount(value);
+    
+                                    // Clear validation error when field is being edited
+                                    if (validationErrors.amount) {
+                                        setValidationErrors(prev => {
+                                            const newErrors = { ...prev };
+                                            delete newErrors.amount;
+                                            return newErrors;
+                                        });
+                                    }
+                                }}
+                            />
+                        </div>
+                        {validationErrors.amount && (
+                            <p className="mt-1 text-sm text-red-500">{validationErrors.amount}</p>
+                        )}
+                    </div>
+    
+                    {/* Transfer note */}
+                    <div className="mb-6">
+                        <label htmlFor="note" className="block text-sm font-medium text-gray-700 mb-1">
+                            Note (Optional)
+                        </label>
+                        <textarea
+                            id="note"
+                            name="note"
+                            rows={3}
+                            className="block w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
+                            placeholder="Add a note for this transfer"
+                            value={transferNote}
+                            onChange={(e) => setTransferNote(e.target.value)}
+                        ></textarea>
+                    </div>
+    
+                    {/* Fee information */}
+                    <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                        <div className="flex justify-between items-center mb-2">
+                            <span className="text-sm text-gray-500">Transfer Fee:</span>
+                            <span className="font-medium">${transferFee}</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                            <span className="text-sm text-gray-500">Total Amount:</span>
+                            <span className="font-medium">
+                                ${transferAmount ? (Number(transferAmount) + Number(transferFee)).toFixed(2) : transferFee}
+                            </span>
+                        </div>
+                    </div>
+    
+                    {/* Navigation buttons */}
+                    <div className="flex justify-between mt-8">
+                        <button
+                            type="button"
+                            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+                            onClick={handleBack}
+                        >
+                            Back
+                        </button>
+                        <button
+                            type="button"
+                            className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center"
+                            onClick={handleContinue}
+                        >
+                            Continue
+                            <ChevronRight size={18} className="ml-1" />
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+    
+        // Render review step
+        const renderReviewStep = () => {
+            return (
+                <div className="bg-white rounded-lg shadow-sm p-6">
+                    <h2 className="text-xl font-bold mb-6">Review Transfer</h2>
+    
+                    <div className="space-y-6">
+                        {/* Recipient information */}
                         <div>
-                            <h3 className="text-sm font-medium text-gray-500 mb-2">Note</h3>
+                            <h3 className="text-sm font-medium text-gray-500 mb-2">Recipient</h3>
                             <div className="bg-gray-50 p-4 rounded-lg">
-                                <p className="text-gray-700">{transferNote}</p>
+                                <div className="flex items-center">
+                                    <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 mr-3">
+                                        <User size={20} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-medium">
+                                            {isAddingNew ? newRecipient.name : selectedRecipient?.name}
+                                        </h4>
+                                        <div className="flex items-center text-sm text-gray-500">
+                                            <span>
+                                                {isAddingNew ?
+                                                    newRecipient.accountNumber.replace(/(\d{4})$/, '****$1') :
+                                                    selectedRecipient?.accountNumber}
+                                            </span>
+                                            <span className="mx-2">•</span>
+                                            <span>
+                                                {isAddingNew ? newRecipient.bankName : selectedRecipient?.bankName}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    )}
-
-                    {/* Date and time */}
-                    <div>
-                        <h3 className="text-sm font-medium text-gray-500 mb-2">Date & Time</h3>
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                            <p className="text-gray-700">{new Date().toLocaleString()}</p>
+    
+                        {/* Transfer details */}
+                        <div>
+                            <h3 className="text-sm font-medium text-gray-500 mb-2">Transfer Details</h3>
+                            <div className="bg-gray-50 p-4 rounded-lg">
+                                <div className="space-y-3">
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-gray-500">Amount:</span>
+                                        <span className="font-medium">${Number(transferAmount).toFixed(2)}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-gray-500">Transfer Fee:</span>
+                                        <span className="font-medium">${transferFee}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center pt-2 border-t border-gray-200">
+                                        <span className="text-gray-700 font-medium">Total:</span>
+                                        <span className="font-bold text-lg">
+                                            ${(Number(transferAmount) + Number(transferFee)).toFixed(2)}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        {/* Note */}
+                        {transferNote && (
+                            <div>
+                                <h3 className="text-sm font-medium text-gray-500 mb-2">Note</h3>
+                                <div className="bg-gray-50 p-4 rounded-lg">
+                                    <p className="text-gray-700">{transferNote}</p>
+                                </div>
+                            </div>
+                        )}
+    
+                        {/* Date and time */}
+                        <div>
+                            <h3 className="text-sm font-medium text-gray-500 mb-2">Date & Time</h3>
+                            <div className="bg-gray-50 p-4 rounded-lg">
+                                <p className="text-gray-700">{new Date().toLocaleString()}</p>
+                            </div>
                         </div>
                     </div>
+    
+                    {/* Terms and disclaimer */}
+                    <div className="mt-6 p-4 bg-yellow-50 border border-yellow-100 rounded-lg">
+                        <p className="text-sm text-yellow-800">
+                            By proceeding with this transfer, you agree to our terms and conditions.
+                            Please ensure all recipient details are correct as transfers cannot be reversed once processed.
+                        </p>
+                    </div>
+    
+                    {/* Navigation buttons */}
+                    <div className="flex justify-between mt-8">
+                        <button
+                            type="button"
+                            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+                            onClick={handleBack}
+                        >
+                            Back
+                        </button>
+                        <button
+                            type="button"
+                            className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center"
+                            onClick={handleContinue}
+                        >
+                            Confirm Transfer
+                            <ChevronRight size={18} className="ml-1" />
+                        </button>
+                    </div>
                 </div>
-
-                {/* Terms and disclaimer */}
-                <div className="mt-6 p-4 bg-yellow-50 border border-yellow-100 rounded-lg">
-                    <p className="text-sm text-yellow-800">
-                        By proceeding with this transfer, you agree to our terms and conditions.
-                        Please ensure all recipient details are correct as transfers cannot be reversed once processed.
+            );
+        };
+    
+        // Render confirmation step - Modified to show error instead of success
+        const renderConfirmationStep = () => {
+            return (
+                <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <XCircle size={32} className="text-red-600" />
+                    </div>
+    
+                    <h2 className="text-2xl font-bold mb-2">Transfer Requires Verification</h2>
+                    <p className="text-gray-600 mb-6">
+                        For security reasons, we cannot complete your transfer of ${Number(transferAmount).toFixed(2)} to {isAddingNew ? newRecipient.name : selectedRecipient?.name} at this time.
                     </p>
-                </div>
-
-                {/* Navigation buttons */}
-                <div className="flex justify-between mt-8">
-                    <button
-                        type="button"
-                        className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
-                        onClick={handleBack}
-                    >
-                        Back
-                    </button>
-                    <button
-                        type="button"
-                        className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center"
-                        onClick={handleContinue}
-                    >
-                        Confirm Transfer
-                        <ChevronRight size={18} className="ml-1" />
-                    </button>
-                </div>
-            </div>
-        );
-    };
-
-    // Render confirmation step
-    const renderConfirmationStep = () => {
-        return (
-            <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Check size={32} className="text-green-600" />
-                </div>
-
-                <h2 className="text-2xl font-bold mb-2">Transfer Successful!</h2>
-                <p className="text-gray-600 mb-6">
-                    Your transfer of ${Number(transferAmount).toFixed(2)} to {isAddingNew ? newRecipient.name : selectedRecipient?.name} has been processed successfully.
-                </p>
-
-                <div className="bg-gray-50 p-4 rounded-lg mb-6 max-w-md mx-auto">
-                    <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-500">Transaction ID:</span>
-                            <span className="font-medium">{transactionId}</span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-500">Date & Time:</span>
-                            <span className="font-medium">{new Date().toLocaleString()}</span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-500">Status:</span>
-                            <span className="text-green-600 font-medium">Completed</span>
+    
+                    <div className="bg-red-50 p-6 rounded-lg mb-6 max-w-md mx-auto">
+                        <div className="space-y-4">
+                            <div className="flex justify-between items-center">
+                                <span className="text-gray-700">Transaction ID:</span>
+                                <span className="font-medium">{transactionId}</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-gray-700">Status:</span>
+                                <span className="text-red-600 font-medium">Pending Verification</span>
+                            </div>
+                            <div className="text-left mt-4">
+                                <h4 className="font-bold text-red-700 mb-2">Action Required:</h4>
+                                <p className="text-gray-700 mb-3">
+                                    Please contact our customer service department to complete this transfer. This additional verification is required for your security.
+                                </p>
+                                <div className="flex items-center text-primary-600 font-medium">
+                                    <PhoneCall size={18} className="mr-2" />
+                                    <span>+233 30 273 8299</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+    
+                    <div className="p-4 bg-gray-50 rounded-lg mb-6 max-w-md mx-auto">
+                    <h4 className="font-medium mb-2">Please have the following information ready:</h4>
+                    <ul className="text-left text-gray-700 space-y-2">
+                        <li>• Your Transaction ID: {transactionId}</li>
+                        <li>• Government-issued photo ID</li>
+                        <li>• Details about the recipient</li>
+                        <li>• The purpose of this transfer</li>
+                    </ul>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -715,3 +737,5 @@ const TransferPage: React.FC = () => {
 };
 
 export default TransferPage;
+
+    
