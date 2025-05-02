@@ -7,7 +7,6 @@ const CtaSection: React.FC = () => {
     <section className="section bg-primary-900 text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal">Ready to Start Gold Banking with Adinkrah Trust?</h2>
           <p className="text-xl text-primary-100 mb-8 reveal delay-1">
             Join Ghana's leading gold banking institution and experience secure, PMMC-accredited gold trading, storage, and financing solutions.
           </p>
