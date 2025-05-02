@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <section className="relative h-screen flex items-center text-white lg:p-6 p-2">
+    <section className="relative h-screen flex items-center text-white lg:p-6 pt-8">
       {/* Background Image + Overlay */}
       <div className="absolute inset-0 z-0">
         <div

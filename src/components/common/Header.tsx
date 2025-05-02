@@ -94,11 +94,13 @@ const Header: React.FC = () => {
   }, [isOpen]);
 
   // Fixed header height
-  const headerHeight = '72px';
+  const headerHeight = '33px';
 
   return (
     <>
-    
+      {/* This empty div creates space for the fixed header */}
+{/* This empty div creates space for the fixed header on small screens only */}
+<div className="md:hidden" style={{ height: headerHeight }}></div>
       
       <header 
         className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4"
