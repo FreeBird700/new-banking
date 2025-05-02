@@ -21,8 +21,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 // Mock user data
 const mockUser = {
   id: '123456789',
-  name: 'Abigail Smith',
-  email: 'abigail.smith@example.com',
+  name: 'Abigail Wayne',
+  email: 'abigail.wayne@example.com',
   accountNumber: '9876543210',
 };
 
@@ -48,20 +48,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     checkAuth();
   }, []);
 
-  const login = async (email: string, password: string) => {
+  const login = async (username: string, password: string) => {
     setIsLoading(true);
     setError(null);
 
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1000));
 
-    // Simple validation (in a real app, this would be a backend authentication)
-    if (email === 'demo@securebank.com' && password === 'password') {
+    // Updated validation with new credentials
+    if (username === 'ABIGAILWAYNE2025' && password === '#Wayne_143') {
       setUser(mockUser);
       localStorage.setItem('securebank_user', JSON.stringify(mockUser));
       setIsLoading(false);
     } else {
-      setError('Invalid email or password. Try demo@securebank.com / password');
+      setError('Invalid username or password. Please try again.');
       setIsLoading(false);
       throw new Error('Invalid credentials');
     }

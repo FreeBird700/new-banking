@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Eye, EyeOff, LogIn, LockKeyhole, Mail } from 'lucide-react';
+import { Eye, EyeOff, LogIn, LockKeyhole, User } from 'lucide-react';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 
 const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
     setErrorMessage('');
     
     try {
-      await login(email, password);
+      await login(username, password);
       // Redirect to dashboard on successful login
       navigate('/dashboard');
     } catch (err) {
@@ -48,12 +48,7 @@ const LoginPage: React.FC = () => {
                 
                 {/* Login Form */}
                 <div className="p-8">
-                  {/* Demo credentials notice */}
-                  <div className="bg-primary-50 text-primary-800 p-4 rounded-lg mb-6 text-sm">
-                    <p className="font-medium">Demo Credentials:</p>
-                    <p>Email: demo@securebank.com</p>
-                    <p>Password: password</p>
-                  </div>
+                  
                   
                   {/* Error message */}
                   {errorMessage && (
@@ -63,22 +58,22 @@ const LoginPage: React.FC = () => {
                   )}
                   
                   <form onSubmit={handleSubmit}>
-                    {/* Email field */}
+                    {/* Username field */}
                     <div className="mb-6">
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address
+                      <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
+                        Username
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail size={18} className="text-gray-400" />
+                          <User size={18} className="text-gray-400" />
                         </div>
                         <input
-                          type="email"
-                          id="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          type="text"
+                          id="username"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
                           className="input pl-10"
-                          placeholder="Your email address"
+                          placeholder="Your username"
                           required
                         />
                       </div>
@@ -90,7 +85,6 @@ const LoginPage: React.FC = () => {
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                           Password
                         </label>
-                        
                       </div>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -150,13 +144,8 @@ const LoginPage: React.FC = () => {
                       )}
                     </button>
                   </form>
-                  
-                  {/* Register link */}
-                 
                 </div>
               </div>
-              
-              
             </div>
           </div>
         </section>

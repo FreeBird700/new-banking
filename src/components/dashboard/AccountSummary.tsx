@@ -92,7 +92,7 @@ const AccountSummary: React.FC = () => {
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-gray-400 mb-1">Card Holder</p>
-                <p>{user?.name || 'John Doe'}</p>
+                <p>{user?.name || 'Abigail Wayne'}</p>
               </div>
               <div>
                 <p className="text-gray-400 mb-1">Expires</p>

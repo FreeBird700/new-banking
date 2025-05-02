@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Shield, Award, Target, ArrowUpRight } from 'lucide-react';
+import abigailImage from '../assets/pic.jpg';
 
 const AboutPage: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const AboutPage: React.FC = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal">Our Story</h1>
               <p className="text-xl text-gray-600 mb-8 reveal delay-1">
-                Established in 2018 with full licensing from the Bank of Ghana (License No. BG/GOV/5763), 
+                Established in 2018 with full licensing from the Bank of Ghana (License No. BG/GOV/5763),
                 Adinkrah Trust Bank has become Ghana's leading financial institution specializing in gold-backed services.
               </p>
             </div>
@@ -27,30 +28,30 @@ const AboutPage: React.FC = () => {
                 At Adinkrah Trust Bank, our values guide everything we do, from how we serve our clients to how we innovate for the future of gold banking.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <ValueCard 
+              <ValueCard
                 icon={<Users size={32} />}
                 title="Client Focus"
                 description="We put our gold traders and investors at the center of everything we do, providing specialized services tailored to their unique needs."
                 delay="delay-1"
               />
-              
-              <ValueCard 
+
+              <ValueCard
                 icon={<Shield size={32} />}
                 title="Security"
                 description="We implement Ghana's most robust security measures to protect our clients' gold assets and financial information."
                 delay="delay-2"
               />
-              
-              <ValueCard 
+
+              <ValueCard
                 icon={<Award size={32} />}
                 title="Excellence"
                 description="Recognized as PMMC's Digital Gold Partner of the Year (2023), we strive for excellence in all our operations."
                 delay="delay-3"
               />
-              
-              <ValueCard 
+
+              <ValueCard
                 icon={<Target size={32} />}
                 title="Innovation"
                 description="As the first Ghanaian bank to offer instant gold-to-currency conversions, we embrace innovation in gold banking."
@@ -76,7 +77,7 @@ const AboutPage: React.FC = () => {
                   <p className="mt-4 font-medium">— Nana Yaa Asantewaa, Gold Trade Division</p>
                 </div>
               </div>
-              
+
               <div>
                 <h2 className="text-3xl font-bold mb-6 reveal">Our Vision</h2>
                 <p className="text-lg text-primary-100 mb-6 reveal delay-1">
@@ -110,31 +111,25 @@ const AboutPage: React.FC = () => {
                 Meet the experienced professionals leading Adinkrah Trust Bank towards a future of innovation and excellence in gold banking.
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <TeamMember 
-                name="Nana Yaa Asantewaa"
-                role="Gold Trade Division"
-                image="https://images.pexels.com/photos/5876695/pexels-photo-5876695.jpeg?auto=compress&cs=tinysrgb&w=300"
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+              <TeamMember
+                name="Abigail Wayne"
+                role="Chief Executive Officer"
+                image={abigailImage}
                 delay="delay-1"
               />
-              
-              <TeamMember 
-                name="Kwame Osei"
-                role="Chief Compliance Officer"
-                image="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=300"
+
+              <TeamMember
+                name="John Wilson, Esq."
+                role="Principal Attorney"
+                image="https://2-law-firm.netlify.app/assets/img/pic.jpg"
                 delay="delay-2"
-              />
-              
-              <TeamMember 
-                name="Ama Serwah"
-                role="Vault Operations Manager"
-                image="https://images.pexels.com/photos/6533883/pexels-photo-6533883.jpeg?auto=compress&cs=tinysrgb&w=300"
-                delay="delay-3"
               />
             </div>
           </div>
         </section>
+
 
         {/* Timeline */}
         <section className="section bg-gray-50">
@@ -145,41 +140,41 @@ const AboutPage: React.FC = () => {
                 From our founding to today, Adinkrah Trust Bank has continuously evolved to meet the changing needs of gold traders and investors.
               </p>
             </div>
-            
+
             <div className="max-w-4xl mx-auto">
-              <TimelineItem 
+              <TimelineItem
                 year="2018"
                 title="Founded in Kumasi"
                 description="Adinkrah Trust Bank was established with a mission to provide secure and accessible gold banking services."
                 isLeft={true}
                 delay="delay-1"
               />
-              
-              <TimelineItem 
+
+              <TimelineItem
                 year="2020"
                 title="PMMC Accreditation"
                 description="Received full accreditation from the Precious Minerals Marketing Company (PMMC) for gold trading and storage."
                 isLeft={false}
                 delay="delay-2"
               />
-              
-              <TimelineItem 
+
+              <TimelineItem
                 year="2021"
                 title="Launched Digital Gold Platform"
                 description="Our award-winning mobile and online gold banking platforms were introduced, revolutionizing how our customers trade gold."
                 isLeft={true}
                 delay="delay-3"
               />
-              
-              <TimelineItem 
+
+              <TimelineItem
                 year="2022"
                 title="Gold-Backed Financing"
                 description="Introduced innovative gold-backed loans with competitive 6.5% APR rates and flexible repayment terms."
                 isLeft={false}
                 delay="delay-4"
               />
-              
-              <TimelineItem 
+
+              <TimelineItem
                 year="2023"
                 title="Today"
                 description="Recognized as PMMC's Digital Gold Partner of the Year, serving gold traders and investors with cutting-edge financial solutions."
@@ -193,6 +188,7 @@ const AboutPage: React.FC = () => {
     </>
   );
 };
+
 
 // Helper Components
 interface ValueCardProps {
@@ -220,19 +216,30 @@ interface TeamMemberProps {
   image: string;
   delay: string;
 }
-// Continuing from where we left off...
 
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image, delay }) => {
   return (
     <div className={`card overflow-hidden hover:shadow-lg transition-all duration-300 reveal ${delay}`}>
-      <img src={image} alt={name} className="w-full h-64 object-cover" />
+      <div className="h-64 bg-gray-100 flex items-center justify-center">
+        <img 
+          src={image} 
+          alt={name} 
+          className="w-full h-64 object-cover"
+          onError={(e) => {
+            e.currentTarget.src = "https://via.placeholder.com/200?text=Abigail+Wayne";
+            e.currentTarget.onerror = null;
+          }} 
+        />
+      </div>
       <div className="p-6">
         <h3 className="text-xl font-bold mb-1">{name}</h3>
         <p className="text-gray-600">{role}</p>
+        
       </div>
     </div>
   );
 };
+
 
 interface TimelineItemProps {
   year: string;

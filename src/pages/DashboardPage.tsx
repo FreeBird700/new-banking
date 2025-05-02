@@ -47,7 +47,7 @@ const SidebarContent: React.FC<{ user: any; logout: () => void }> = ({ user, log
             {user?.name.charAt(0) || 'U'}
           </div>
           <div>
-            <p className="text-sm font-medium text-white">{user?.name}</p>
+            <p className="text-sm font-medium text-white">Abigail Wayne</p>
           </div>
         </div>
         

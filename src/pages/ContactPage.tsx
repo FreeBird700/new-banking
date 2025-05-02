@@ -127,7 +127,7 @@ const ContactPage: React.FC = () => {
                             onChange={handleChange}
                             required
                             className="input"
-                            placeholder="John Doe"
+                            placeholder="Abigail Wayne"
                           />
                         </div>
                         <div>
@@ -142,7 +142,7 @@ const ContactPage: React.FC = () => {
                             onChange={handleChange}
                             required
                             className="input"
-                            placeholder="john@example.com"
+                            placeholder="abigail@example.com"
                           />
                         </div>
                       </div>

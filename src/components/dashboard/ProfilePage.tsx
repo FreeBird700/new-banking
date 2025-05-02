@@ -13,7 +13,7 @@ const ProfilePage: React.FC = () => {
                         <div className="flex flex-col items-center">
                             <div className="relative">
                                 <img
-                                    src="https://images.pexels.com/photos/6533883/pexels-photo-6533883.jpeg?auto=compress&cs=tinysrgb&w=300"
+                                    src="/../../assets/pic.jpg"
                                     alt="Profile"
                                     className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md"
                                 />
@@ -22,7 +22,7 @@ const ProfilePage: React.FC = () => {
                                 </button>
                             </div>
 
-                            <h2 className="text-xl font-bold mt-4">Abigail Smith</h2>
+                            <h2 className="text-xl font-bold mt-4">Abigail Wayne</h2>
                             <p className="text-gray-600">Gold Investor</p>
 
                             <div className="mt-6 w-full space-y-2">
@@ -78,7 +78,7 @@ const ProfilePage: React.FC = () => {
                                             <input
                                                 type="text"
                                                 className="input"
-                                                defaultValue="Smith"
+                                                defaultValue="Wayne"
                                             />
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@ const ProfilePage: React.FC = () => {
                                             <input
                                                 type="email"
                                                 className="input rounded-l-none"
-                                                defaultValue="abigail.smith@example.com"
+                                                defaultValue="abigail.wayne@example.com"
                                             />
                                         </div>
                                     </div>
