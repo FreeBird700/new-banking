@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, MapPin, Shield, Key, Camera } from 'lucide-react';
+import abigailImage from '../../assets/pic.jpg';
 
 const ProfilePage: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'personal' | 'security' | 'verification'>('personal');
@@ -13,7 +14,7 @@ const ProfilePage: React.FC = () => {
                         <div className="flex flex-col items-center">
                             <div className="relative">
                                 <img
-                                    src="/../../assets/pic.jpg"
+                                    src={abigailImage}
                                     alt="Profile"
                                     className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md"
                                 />
@@ -22,7 +23,7 @@ const ProfilePage: React.FC = () => {
                                 </button>
                             </div>
 
-                            <h2 className="text-xl font-bold mt-4">Abigail Wayne</h2>
+                            <h2 className="text-xl font-bold mt-4">Abigail Smith</h2>
                             <p className="text-gray-600">Gold Investor</p>
 
                             <div className="mt-6 w-full space-y-2">
@@ -78,7 +79,7 @@ const ProfilePage: React.FC = () => {
                                             <input
                                                 type="text"
                                                 className="input"
-                                                defaultValue="Wayne"
+                                                defaultValue="Smith"
                                             />
                                         </div>
                                     </div>
@@ -94,7 +95,7 @@ const ProfilePage: React.FC = () => {
                                             <input
                                                 type="email"
                                                 className="input rounded-l-none"
-                                                defaultValue="abigail.wayne@example.com"
+                                                defaultValue="abigail.smith@example.com"
                                             />
                                         </div>
                                     </div>

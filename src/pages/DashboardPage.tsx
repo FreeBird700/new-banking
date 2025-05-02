@@ -47,7 +47,7 @@ const SidebarContent: React.FC<{ user: any; logout: () => void }> = ({ user, log
             {user?.name.charAt(0) || 'U'}
           </div>
           <div>
-            <p className="text-sm font-medium text-white">Abigail Wayne</p>
+            <p className="text-sm font-medium text-white">Abigail Smith</p>
           </div>
         </div>
         
@@ -128,27 +128,26 @@ const DashboardPage: React.FC = () => {
         {/* Header */}
         <header className="bg-white shadow-sm mt-8">
           <div className="px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div className="flex items-center">
-              {/* Mobile menu button */}
+            {/* Left - Hamburger Menu */}
+            <div>
               <button 
-                className="lg:hidden mr-4 text-gray-600 hover:text-gray-900"
+                className="lg:hidden text-gray-600 hover:text-gray-900"
                 onClick={toggleSidebar}
               >
                 <Menu size={24} />
               </button>
-              
-              <h1 className="text-xl font-bold text-gray-900">{getActiveRoute()}</h1>
             </div>
             
-            {/* Profile section */}
-            <div className="flex items-center space-x-4">
-              
-              
-              <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-primary-700 flex items-center justify-center text-white font-medium mr-2">
-                  {user?.name.charAt(0) || 'U'}
-                </div>
-                <span className="text-sm font-medium text-gray-700 hidden md:block">{user?.name}</span>
+            {/* Middle - User Name */}
+            <div className="text-center">
+              {/* <h1 className="text-xl font-bold text-gray-900 hidden lg:block">{getActiveRoute()}</h1> */}
+              <span className="text-sm font-large text-gray-700 lg:hidden">Abigail Smith</span>
+            </div>
+            
+            {/* Right - Profile Icon */}
+            <div>
+              <div className="w-8 h-8 rounded-full bg-primary-700 flex items-center justify-center text-white font-medium">
+                {user?.name.charAt(0) || 'U'}
               </div>
             </div>
           </div>

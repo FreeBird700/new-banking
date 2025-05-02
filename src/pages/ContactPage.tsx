@@ -127,7 +127,7 @@ const ContactPage: React.FC = () => {
                             onChange={handleChange}
                             required
                             className="input"
-                            placeholder="Abigail Wayne"
+                            placeholder="Abigail Smith"
                           />
                         </div>
                         <div>

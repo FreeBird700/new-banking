@@ -114,7 +114,7 @@ const AboutPage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
               <TeamMember
-                name="Abigail Wayne"
+                name="Abigail Smith"
                 role="Chief Executive Officer"
                 image={abigailImage}
                 delay="delay-1"
@@ -226,7 +226,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, image, delay }) => 
           alt={name} 
           className="w-full h-64 object-cover"
           onError={(e) => {
-            e.currentTarget.src = "https://via.placeholder.com/200?text=Abigail+Wayne";
+            e.currentTarget.src = "https://via.placeholder.com/200?text=Abigail+Smith";
             e.currentTarget.onerror = null;
           }} 
         />
