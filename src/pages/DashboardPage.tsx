@@ -44,7 +44,7 @@ const SidebarContent: React.FC<{ user: any; logout: () => void }> = ({ user, log
       <div className="px-4 py-6 border-t border-primary-800">
         <div className="flex items-center px-2 mb-6">
           <div className="w-10 h-10 rounded-full bg-primary-700 flex items-center justify-center text-white font-medium mr-3">
-            {user?.name.charAt(0) || 'U'}
+            A
           </div>
           <div>
             <p className="text-sm font-medium text-white">Abigail Smith</p>
@@ -147,7 +147,7 @@ const DashboardPage: React.FC = () => {
             {/* Right - Profile Icon */}
             <div>
               <div className="w-8 h-8 rounded-full bg-primary-700 flex items-center justify-center text-white font-medium">
-                {user?.name.charAt(0) || 'U'}
+                A
               </div>
             </div>
           </div>
