@@ -2,21 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/public/fav.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Adinkra Trust Bank - Secure gold banking services with PMMC accreditation for gold trading, storage, and financing." />
+    <meta name="description" content="Adinkra Trust Bank - Ghana's premier gold banking institution offering PMMC-accredited gold trading, storage, financing, and escrow services for traders and investors." />
+    <meta name="keywords" content="gold banking, Ghana gold bank, PMMC accredited, gold trading, gold storage, gold-backed loans, gold escrow, Adinkra Trust Bank, gold investment Ghana" />
+    <meta name="author" content="Adinkra Trust Bank" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#2563EB" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="canonical" href="https://www.adinkraybank.org" />
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Adinkra Trust Bank - Gold Banking Services" />
-    <meta property="og:description" content="Secure gold banking services with PMMC accreditation for gold trading, storage, and financing." />
-    <meta property="og:image" content="/og-image.jpg" />
-    <meta property="og:url" content="https://adinkratrustbank.com" />
+    <meta property="og:title" content="Adinkra Trust Bank - Ghana's Gold Banking Specialists" />
+    <meta property="og:description" content="Secure PMMC-accredited gold banking services including trading, storage, financing, and escrow solutions for traders and investors in Ghana." />
+    <meta property="og:image" content="https://www.adinkraybank.org/og-image.jpg" />
+    <meta property="og:url" content="https://www.adinkraybank.org" />
+    <meta property="og:site_name" content="Adinkra Trust Bank" />
     
-    <title>Adinkra Trust Bank | Gold Banking Services</title>
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Adinkra Trust Bank - Ghana's Gold Banking Specialists" />
+    <meta name="twitter:description" content="Secure PMMC-accredited gold banking services including trading, storage, financing, and escrow solutions for traders and investors in Ghana." />
+    <meta name="twitter:image" content="https://www.adinkraybank.org/og-image.jpg" />
+    
+    <title>Adinkra Trust Bank | Ghana's Premier Gold Banking Institution</title>
     
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,13 +111,16 @@
         "@context": "https://schema.org",
         "@type": "FinancialService",
         "name": "Adinkra Trust Bank",
-        "description": "Secure gold banking services with PMMC accreditation for gold trading, storage, and financing.",
-        "url": "https://adinkratbank.org",
-        "logo": "https://adinkratbank.org/fav.jpg",
+        "description": "Ghana's premier gold banking institution offering PMMC-accredited gold trading, storage, financing, and escrow services for traders and investors.",
+        "url": "https://www.adinkraybank.org",
+        "logo": "https://www.adinkraybank.org/logo.jpg",
+        "image": "https://www.adinkraybank.org/bank-image.jpg",
+        "priceRange": "$$",
         "sameAs": [
           "https://www.facebook.com/adinkratrustbank",
           "https://www.twitter.com/adinkrabank",
-          "https://www.linkedin.com/company/adinkra-trust-bank"
+          "https://www.linkedin.com/company/adinkra-trust-bank",
+          "https://www.instagram.com/adinkratrustbank"
         ],
         "address": {
           "@type": "PostalAddress",
@@ -116,8 +130,72 @@
           "postalCode": "00233",
           "addressCountry": "GH"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "5.6037",
+          "longitude": "-0.1870"
+        },
         "telephone": "+233-302-123456",
-        "openingHours": "Mo,Tu,We,Th,Fr 09:00-17:00"
+        "openingHours": "Mo,Tu,We,Th,Fr 09:00-17:00",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Ghana"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Gold Banking Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gold Escrow Accounts"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gold Storage"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gold-Backed Loans"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+    
+    <!-- BreadcrumbList structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.adinkraybank.org"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.adinkraybank.org/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Contact",
+            "item": "https://www.adinkraybank.org/contact"
+          }
+        ]
       }
     </script>
     
@@ -142,5 +220,8 @@
     
     <!-- Deferred analytics script -->
     <script async defer src="/analytics.js"></script>
+    
+    <!-- Sitemap reference (create this file in your public directory) -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   </body>
 </html>

@@ -6,19 +6,29 @@ import {
   LogOut, 
   Menu,
   DollarSign,
+  Send,
+  CreditCard,
+  Settings
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 // Dashboard Components
 import DashboardHome from '../components/dashboard/DashboardHome';
-import TransactionsPage from '../components/dashboard/TransactionsPage.tsx';
-import ProfilePage from '../components/dashboard/ProfilePage.tsx';
+import TransactionsPage from '../components/dashboard/TransactionsPage';
+import ProfilePage from '../components/dashboard/ProfilePage';
+import TransferPage from '../components/dashboard/TransferPage';
+
 // Dashboard routes configuration
 const dashboardRoutes = [
   {
     path: 'overview',
     title: 'Dashboard',
     icon: <Home size={20} />,
+  },
+  {
+    path: 'transfer',
+    title: 'Transfer Funds',
+    icon: <Send size={20} />,
   },
   {
     path: 'transactions',
@@ -30,7 +40,6 @@ const dashboardRoutes = [
     title: 'Profile',
     icon: <User size={20} />,
   },
-  
 ];
 
 // Sidebar Content Component
@@ -39,8 +48,6 @@ const SidebarContent: React.FC<{ user: any; logout: () => void }> = ({ user, log
   
   return (
     <>
-
-      
       <div className="px-4 py-6 border-t border-primary-800">
         <div className="flex items-center px-2 mb-6">
           <div className="w-10 h-10 rounded-full bg-primary-700 flex items-center justify-center text-white font-medium mr-3">
@@ -138,9 +145,9 @@ const DashboardPage: React.FC = () => {
               </button>
             </div>
             
-            {/* Middle - User Name */}
+            {/* Middle - Page Title */}
             <div className="text-center">
-              {/* <h1 className="text-xl font-bold text-gray-900 hidden lg:block">{getActiveRoute()}</h1> */}
+              <h1 className="text-xl font-bold text-gray-900 hidden lg:block">{getActiveRoute()}</h1>
               <span className="text-sm font-large text-gray-700 lg:hidden">Abigail Smith</span>
             </div>
             
@@ -158,6 +165,7 @@ const DashboardPage: React.FC = () => {
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard/overview" replace />} />
             <Route path="overview" element={<DashboardHome />} />
+            <Route path="transfer" element={<TransferPage />} />
             <Route path="transactions" element={<TransactionsPage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="*" element={<Navigate to="/dashboard/overview" replace />} />
