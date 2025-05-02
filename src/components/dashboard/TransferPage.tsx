@@ -32,7 +32,7 @@ const recentRecipients: RecentRecipient[] = [
         id: '1',
         name: 'James Wilson',
         accountNumber: '****3456',
-        bankName: 'First National Bank',
+        bankName: 'Mountain Africa Credit Union',
         lastTransfer: '2 days ago'
     },
     {
@@ -360,7 +360,7 @@ const TransferPage: React.FC = () => {
                                     <option value="Ghana Commercial Bank">Ghana Commercial Bank</option>
                                     <option value="Ecobank Ghana">Ecobank Ghana</option>
                                     <option value="Fidelity Bank Ghana">Fidelity Bank Ghana</option>
-                                    <option value="Zenith Bank Ghana">Zenith Bank Ghana</option>
+                                    <option value="Mountain Africa Credit Union">Mountain Africa Credit Union</option>
                                 </select>
                                 {validationErrors.bankName && (
                                     <p className="mt-1 text-sm text-red-500">{validationErrors.bankName}</p>
