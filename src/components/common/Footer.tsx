@@ -58,10 +58,7 @@ const Footer: React.FC = () => {
                 <MapPin size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
                 <span>18 Golden Star Boulevard<br />Kumasi, Ghana</span>
               </li>
-              <li className="flex items-start">
-                <Phone size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
-                <span>+233 24 287 2025</span>
-              </li>
+              
               <li className="flex items-start">
                 <Mail size={20} className="mr-3 text-accent-400 mt-1 flex-shrink-0" />
                 <span>goldservices@adinkrahtrust.com</span>

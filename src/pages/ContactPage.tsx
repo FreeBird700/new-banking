@@ -53,20 +53,13 @@ const ContactPage: React.FC = () => {
         <section className="section bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <ContactCard 
-                icon={<Phone size={32} />}
-                title="Phone/WhatsApp"
-                info="+233 24 287 2025"
-                subInfo="Gold Trade Specialists"
-                delay="delay-1"
-              />
               
               <ContactCard 
                 icon={<Mail size={32} />}
                 title="Email"
-                info="goldservices@adinkrahtrust.com"
+                info="adinkratrustbank@gmail.com"
                 subInfo="We'll respond within 24 hours"
-                delay="delay-2"
+                delay="delay-1"
               />
               
               <ContactCard 

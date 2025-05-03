@@ -7,7 +7,7 @@ import {
     Search,
     User,
     XCircle,
-    PhoneCall
+    Mail
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -680,8 +680,8 @@ const TransferPage: React.FC = () => {
                                     Please contact our customer service department to complete this transfer. This additional verification is required for your security.
                                 </p>
                                 <div className="flex items-center text-primary-600 font-medium">
-                                    <PhoneCall size={18} className="mr-2" />
-                                    <span>+233 30 273 8299</span>
+                                    <Mail size={18} className="mr-2" />
+                                    <span>adinkratrustbank@gmail.com</span>
                                 </div>
                             </div>
                         </div>
